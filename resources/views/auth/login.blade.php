@@ -1,4 +1,18 @@
 @include("layouts.head")
+<style>
+    .form-container{
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        margin-top: 100px;
+
+    }
+    form{
+        padding: 20px;
+        width: 350px;
+        border: 2px black solid;
+    }
+</style>
 <div class="form-container">
 
     <form>
