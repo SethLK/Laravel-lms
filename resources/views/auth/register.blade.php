@@ -16,6 +16,12 @@
 <div class="form-container">
 
     <form>
+        <!-- Name input -->
+        <div class="form-outline mb-4">
+            <input type="text" id="form2Example1" class="form-control" name="name"/>
+            <label class="form-label" for="form2Example1">name</label>
+        </div>
+
         <!-- Email input -->
         <div class="form-outline mb-4">
             <input type="email" id="form2Example1" class="form-control" name="email"/>
@@ -28,7 +34,13 @@
             <label class="form-label" for="form2Example2">Password</label>
         </div>
 
-        <!-- 2 column grid layout for inline styling
+        <!-- Confirm Password input -->
+        <div class="form-outline mb-4">
+            <input type="password" id="form2Example2" class="form-control" name="confirm_password"/>
+            <label class="form-label" for="form2Example2">Password</label>
+        </div>
+
+        <!-- 2 column grid layout for inline styling -->
 {{--        <div class="row mb-4">--}}
 {{--            <div class="col d-flex justify-content-center">--}}
 {{--                <!-- Checkbox -->--}}
@@ -43,13 +55,13 @@
 {{--                <a href="#!">Forgot password?</a>--}}
 {{--            </div>--}}
 {{--        </div>--}}
-        -->
+
         <!-- Submit button -->
-        <button type="button" class="btn btn-primary btn-block mb-4">Sign in</button>
+        <button type="button" class="btn btn-primary btn-block mb-4">Sign up</button>
 
         <!-- Register buttons -->
         <div class="text-center">
-            <p>Not a member? <a href="{{ route("register") }}">Register</a></p>
+            <p>Already a member? <a href="{{ route("login") }}">Login</a></p>
 {{--            <p>or sign up with:</p>--}}
 {{--            <button type="button" class="btn btn-link btn-floating mx-1">--}}
 {{--                <i class="fab fa-facebook-f"></i>--}}
