@@ -19,4 +19,7 @@ Route::get('/', function () {
 })->name("home");
 
 Route::get("/login", [LoginController::class, "index"])->name("login");
+Route::post("/login", [LoginController::class, "login"])->name("_login_");
+
 Route::get("/register", [RegisterController::class, "index"])->name("register");
+Route::post("/register", [RegisterController::class, "register"])->name("_register_");

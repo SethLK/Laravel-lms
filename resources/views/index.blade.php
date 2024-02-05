@@ -1,5 +1,9 @@
 @include("layouts.head")
 
-<h1>Hello, world!</h1>
+@auth
+    <h1>Hello {{ auth()->user()->name }}</h1>
+@else
+    <h1>Hello Guest</h1>
+@endauth
 
 @include("layouts.foot")

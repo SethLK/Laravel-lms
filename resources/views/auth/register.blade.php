@@ -15,29 +15,51 @@
 </style>
 <div class="form-container">
 
-    <form>
+    <form action= {{ route('_register_') }} method="post">
+        <h1> Register </h1>
+        @csrf
         <!-- Name input -->
         <div class="form-outline mb-4">
             <input type="text" id="form2Example1" class="form-control" name="name"/>
             <label class="form-label" for="form2Example1">name</label>
+            @error('name')
+            <div style="color: red">
+                {{ $message }}
+            </div>
+            @enderror
         </div>
 
         <!-- Email input -->
         <div class="form-outline mb-4">
             <input type="email" id="form2Example1" class="form-control" name="email"/>
             <label class="form-label" for="form2Example1">Email address</label>
+            @error('email')
+            <div style="color: red">
+                {{ $message }}
+            </div>
+            @enderror
         </div>
 
         <!-- Password input -->
         <div class="form-outline mb-4">
             <input type="password" id="form2Example2" class="form-control" name="password"/>
             <label class="form-label" for="form2Example2">Password</label>
+            @error('password')
+            <div style="color: red">
+                {{ $message }}
+            </div>
+            @enderror
         </div>
 
         <!-- Confirm Password input -->
         <div class="form-outline mb-4">
-            <input type="password" id="form2Example2" class="form-control" name="confirm_password"/>
-            <label class="form-label" for="form2Example2">Password</label>
+            <input type="password" id="form2Example3" class="form-control" name="password_confirmation"/>
+            <label class="form-label" for="form2Example3">Confirm Password</label>
+            @error('password_confirmation')
+            <div style="color: red">
+                {{ $message }}
+            </div>
+            @enderror
         </div>
 
         <!-- 2 column grid layout for inline styling -->
@@ -57,7 +79,8 @@
 {{--        </div>--}}
 
         <!-- Submit button -->
-        <button type="button" class="btn btn-primary btn-block mb-4">Sign up</button>
+        <button type="submit" class="btn btn-primary btn-block mb-4">Sign up</button>
+
 
         <!-- Register buttons -->
         <div class="text-center">
