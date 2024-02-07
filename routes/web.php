@@ -22,3 +22,5 @@ Route::post("/login", [LoginController::class, "login"])->name("_login_");
 
 Route::get("/register", [RegisterController::class, "index"])->name("register");
 Route::post("/register", [RegisterController::class, "register"])->name("_register_");
+
+Route::post("/logout", [LoginController::class, "logout"])->name("_logout_");
