@@ -26,5 +26,5 @@ Route::post("/register", [RegisterController::class, "register"])->name("_regist
 
 Route::post("/logout", [LoginController::class, "logout"])->name("_logout_");
 
-Route::get("/admin/panel", [AdminController::class, "index"])->name("admin_panel");
+Route::get("/admin/panel", [AdminController::class, "index"])->middleware("admin")->name("admin_panel");
 Route::get("/promote/{user_id}", [AdminController::class, "promote"])->name("_promote_");

@@ -1,5 +1,11 @@
 @include("layouts.head")
 
+<script>
+    @if (session('error'))
+    alert("{{ session('error') }}");
+    @endif
+</script>
+
 <nav>
     <ul>
         <li></li>
@@ -19,10 +25,9 @@
                 <a href="{{ route("login") }}">Login</a>
             </li>
         @endauth
-
-
     </ul>
 </nav>
+
 @auth
     <h1>Hello {{ auth()->user()->name }}</h1>
     <h4>Role: {{ auth()->user()->role }}</h4>
