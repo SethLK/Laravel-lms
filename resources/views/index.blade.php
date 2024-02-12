@@ -6,27 +6,7 @@
     @endif
 </script>
 
-<nav>
-    <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
-    <ul>
-        @auth
-            <li>
-                <form action="{{ route("_logout_") }}" method="post">
-                    @csrf
-                    <button type="submit">Logout</button>
-                </form>
-            </li>
-        @else
-            <li>
-                <a href="{{ route("login") }}">Login</a>
-            </li>
-        @endauth
-    </ul>
-</nav>
+@include("layouts.navbar")
 
 @auth
     <h1>Hello {{ auth()->user()->name }}</h1>
