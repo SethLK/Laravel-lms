@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
+use App\Models\Page;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Page;
 
 class Course extends Model
 {
