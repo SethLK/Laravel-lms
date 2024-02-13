@@ -5,6 +5,7 @@ use App\Http\Controllers\Home\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Course\CourseController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,3 +29,6 @@ Route::post("/logout", [LoginController::class, "logout"])->name("_logout_");
 
 Route::get("/admin/panel", [AdminController::class, "index"])->middleware("admin")->name("admin_panel");
 Route::get("/promote/{user_id}", [AdminController::class, "promote"])->name("_promote_");
+
+//dashboard
+Route::get("/dashboard", [CourseController::class, "index"])->name("dashboard");
