@@ -9,7 +9,9 @@ use Illuminate\Database\Eloquent\Model;
 class Course extends Model
 {
     use HasFactory;
-
+    protected $fillable = [
+        'title',
+    ];
     public function page()
     {
         return $this->hasMany(Page::class);

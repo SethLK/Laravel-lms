@@ -32,3 +32,7 @@ Route::get("/promote/{user_id}", [AdminController::class, "promote"])->name("_pr
 
 //dashboard
 Route::get("/dashboard", [CourseController::class, "index"])->name("dashboard");
+Route::post("/create/course", [CourseController::class, "create"])->name("create.course");
+
+//course
+Route::get("/course/{course_id}", [CourseController::class, "show_by_course_id"])->name("showById");
