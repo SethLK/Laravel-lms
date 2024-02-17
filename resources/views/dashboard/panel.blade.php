@@ -5,7 +5,9 @@
 <div class="container">
     <ul class="list-group">
         @foreach($courses as $course)
-            <li class="list-group-item">{{ $course->title }}</li>
+            <li class="list-group-item">
+                <a href="/edit/{{$course->id}}">{{ $course->title }}</a>
+            </li>
         @endforeach
 
     </ul>

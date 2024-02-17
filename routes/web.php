@@ -36,3 +36,7 @@ Route::post("/create/course", [CourseController::class, "create"])->name("create
 
 //course
 Route::get("/course/{course_id}", [CourseController::class, "show_by_course_id"])->name("showById");
+
+//edit course
+Route::get("/edit/{course_id}", [CourseController::class, "edit"])->name("Edit_Course");
+Route::patch("/update/{course_id}", [CourseController::class, "update_"])->name("update_Course");

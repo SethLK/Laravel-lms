@@ -30,4 +30,21 @@ class CourseController extends Controller
     public function show_by_course_id($course_id){
 
     }
+
+    public function edit($course_id)
+    {
+        $course = Course::find($course_id);
+        return view("dashboard.edit", compact("course"));
+    }
+
+    public function update_(Request $request, $course_id)
+    {
+        $this->validate($request, [
+            'title' => 'required',
+        ]);
+
+        $course = Course::find($course_id);
+        $course->update(['title' => $request->title]);
+        return redirect()->route("dashboard")->with('success', 'Title updated successfully.');
+    }
 }
