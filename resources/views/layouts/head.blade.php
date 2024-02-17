@@ -12,3 +12,8 @@
     <title>Hello, world!</title>
 </head>
 <body>
+<script>
+    @if (session('success'))
+    alert("{{ session('success') }}");
+    @endif
+</script>

@@ -47,4 +47,16 @@ class CourseController extends Controller
         $course->update(['title' => $request->title]);
         return redirect()->route("dashboard")->with('success', 'Title updated successfully.');
     }
+
+    public function delete($course_id)
+    {
+        $course = Course::find($course_id);
+
+        if (!$course) {
+            return redirect()->route("dashboard")->with('error', 'Course not found.');
+        }
+
+        $course->delete();
+        return redirect()->route("dashboard")->with('success', 'Course deleted successfully.');
+    }
 }

@@ -1,9 +1,5 @@
 @include("layouts.head")
-<script>
-    @if (session('success'))
-    alert("{{ session('success') }}");
-    @endif
-</script>
+
 @include("layouts.navbar")
 <h1>Admin panel</h1>
 
