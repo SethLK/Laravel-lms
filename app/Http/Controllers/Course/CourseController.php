@@ -11,7 +11,7 @@ class CourseController extends Controller
     //Render Course Controller/ CURD page
     public function index()
     {
-        $courses = Course::all();
+        $courses = Course::where('instructor_id', auth()->user()->id)->get();
         return view("dashboard.panel", compact("courses"));
     }
 
@@ -23,12 +23,14 @@ class CourseController extends Controller
 
         Course::create([
             'title' => $request->title,
+            'instructor_id' => auth()->user()->id,
         ]);
         return redirect()->route("dashboard")->with('success', 'Course Created successfully.');
     }
 
     public function show_by_course_id($course_id){
-
+        $course = Course::find($course_id);
+        return view("course.view", compact("course"));
     }
 
     public function edit($course_id)

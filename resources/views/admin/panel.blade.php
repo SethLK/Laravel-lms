@@ -13,6 +13,7 @@
         <th scope="col">Email</th>
         <th scope="col">Role</th>
         <th scope="col">Promote</th>
+        <th scope="col">Delete</th>
     </tr>
     </thead>
     <tbody>
@@ -23,6 +24,7 @@
             <td>{{ $user->email }}</td>
             <td>{{ $user->role }}</td>
             <td><a href="/promote/{{ $user->id }}">Promote</a> </td>
+            <td><a href="/delete/{{ $user->id }}">Delete</a></td>
         </tr>
     @endforeach
     </tbody>

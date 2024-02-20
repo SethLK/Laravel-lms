@@ -1,5 +1,6 @@
 @include("layouts.head")
 
+@include("layouts.navbar")
 @include("dashboard.create")
 
 
@@ -17,7 +18,7 @@
     @foreach($courses as $course)
         <tr  scope="row">
             <td>{{ $course->id }}</td>
-            <td>{{ $course->title }}</td>
+            <td><a href="/course/{{$course->id}}">{{ $course->title }}</a></td>
             <td><a href="/edit/{{$course->id}}">Edit</a> </td>
             <td>
                 <form action="{{ route('delete_course', $course->id) }}" method="post">

@@ -29,6 +29,7 @@ Route::post("/logout", [LoginController::class, "logout"])->name("_logout_");
 
 Route::get("/admin/panel", [AdminController::class, "index"])->middleware("admin")->name("admin_panel");
 Route::get("/promote/{user_id}", [AdminController::class, "promote"])->name("_promote_");
+Route::get("/delete/{user_id}", [AdminController::class, "delete_user"])->name("_delete_");
 
 //dashboard
 Route::get("/dashboard", [CourseController::class, "index"])->name("dashboard");

@@ -43,4 +43,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    protected $attributes = [
+        'role' => 'user',
+    ];
+
+    public function instructor()
+    {
+        return $this->hasOne(Instructor::class);
+    }
 }
