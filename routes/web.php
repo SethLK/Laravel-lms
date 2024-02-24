@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Course\CourseController;
+use App\Http\Controllers\Page\PageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,3 +43,7 @@ Route::get("/course/{course_id}", [CourseController::class, "show_by_course_id"]
 Route::get("/edit/{course_id}", [CourseController::class, "edit"])->name("Edit_Course");
 Route::patch("/update/{course_id}", [CourseController::class, "update_"])->name("update_Course");
 Route::delete('/delete/{course_id}', [CourseController::class, 'delete'])->name('delete_course');
+
+
+//pages
+Route::post("/course/{course_id}", [PageController::class, 'create'])->name("page.course");

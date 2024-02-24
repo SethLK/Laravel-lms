@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Course;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Course;
+use App\Models\Page;
 
 class CourseController extends Controller
 {
@@ -30,7 +31,8 @@ class CourseController extends Controller
 
     public function show_by_course_id($course_id){
         $course = Course::find($course_id);
-        return view("course.view", compact("course"));
+        $pages = Page::all();
+        return view("course.view", compact("course", "pages"));
     }
 
     public function edit($course_id)

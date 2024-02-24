@@ -14,7 +14,7 @@ class Course extends Model
         'title',
         'instructor_id',
     ];
-    public function page()
+    public function pages()
     {
         return $this->hasMany(Page::class);
     }
