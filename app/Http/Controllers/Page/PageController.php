@@ -23,8 +23,11 @@ class PageController extends Controller
 
         $course->pages()->save($page);
         return redirect()->route('showById', $course_id)->with('success', 'Page created successfully.');
-
-
     }
 
+    public function viewPage($course_id, $page_id){
+
+        $page = Page::where('course_id', $course_id)->findOrFail($page_id);
+        return view("page", compact("page"));
+    }
 }

@@ -8,7 +8,7 @@
 
     <div class="m-4 border rounded pl-4 pt-4">
         <h4>Course Create</h4>
-        <form action="{{ route('page.course', ['course_id' => $course->id]) }}" method="post" class="form-container">
+        <form action="{{ route('page.course', ['course_id' => $course->id]) }}" method="post" class="form-container" enctype="multipart/form-data">
             @csrf
 
             <div class="form-group m-4">
@@ -21,13 +21,16 @@
             </div>
 
             <div class="form-group m-4">
-                <div id="editor"></div>
-                <input type="hidden" name="content" value="{{ old('content') }}">
-                @error('content')
-                <div style="color: red">
-                    {{ $message }}
+                <div class="mb-6">
+                    <label class="block">
+                        <span class="text-gray-700">Description</span>
+                        <textarea id="editor" class="block w-full mt-1 rounded-md" name="content"
+                                  rows="3"></textarea>
+                    </label>
+                    @error('content')
+                    <div class="text-sm text-red-600">{{ $message }}</div>
+                    @enderror
                 </div>
-                @enderror
             </div>
 
             <button type="submit" class="btn btn-primary m-4">Create</button>
@@ -38,25 +41,23 @@
 @endif
 
 @foreach($pages as $page)
-    <a href="">{{ $page->title }}</a>
+    <div class="ml-4">
+        <a href="{{ $course->id }}/page/{{ $page->id }}">{{ $page->title }}</a>
+    </div>
 @endforeach
 
 @include("layouts.foot")
-
-<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-
+<script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js"></script>
 <script>
-    var quill = new Quill('#editor', {
-        theme: 'snow'
-    });
 
-    // Set the initial content from the hidden input
-    quill.root.innerHTML = {!! json_encode(old('content')) !!};
-
-    // Listen for changes in the Quill editor and update the hidden input
-    quill.on('text-change', function() {
-        document.querySelector('input[name="content"]').value = quill.root.innerHTML;
-    });
-
+    ClassicEditor
+        .create( document.querySelector( '#editor' ),{
+            ckfinder: {
+                uploadUrl: '{{route('image.upload').'?_token='.csrf_token()}}',
+            }
+        })
+        .catch( error => {
+            console.error( error );
+        } );
 </script>
+

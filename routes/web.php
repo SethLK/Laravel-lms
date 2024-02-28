@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Course\CourseController;
 use App\Http\Controllers\Page\PageController;
+use App\Http\Controllers\Page\ImageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,3 +48,8 @@ Route::delete('/delete/{course_id}', [CourseController::class, 'delete'])->name(
 
 //pages
 Route::post("/course/{course_id}", [PageController::class, 'create'])->name("page.course");
+Route::get('/course/{course_id', );
+Route::get("course/{course_id}/page/{page_id}", [PageController::class, 'viewPage'])->name("view.page");
+
+// Image Upload
+Route::post("/image/upload", [ImageController::class, 'storeImage'])->name("image.upload");

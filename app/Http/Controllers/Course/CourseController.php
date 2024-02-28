@@ -63,4 +63,7 @@ class CourseController extends Controller
         $course->delete();
         return redirect()->route("dashboard")->with('success', 'Course deleted successfully.');
     }
+
+    public function user_enroll(){}
+
 }
