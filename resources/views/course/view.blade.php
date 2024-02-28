@@ -24,10 +24,10 @@
                 <div class="mb-6">
                     <label class="block">
                         <span class="text-gray-700">Description</span>
-                        <textarea id="editor" class="block w-full mt-1 rounded-md" name="content"
+                        <textarea id="editor" class="block w-full mt-1 rounded-md" name="page_content"
                                   rows="3"></textarea>
                     </label>
-                    @error('content')
+                    @error('page_content')
                     <div class="text-sm text-red-600">{{ $message }}</div>
                     @enderror
                 </div>

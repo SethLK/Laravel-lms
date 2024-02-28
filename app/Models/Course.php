@@ -6,6 +6,7 @@ use App\Models\Page;
 use App\Models\Instructor;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class Course extends Model
 {
@@ -21,5 +22,10 @@ class Course extends Model
     public function instructor()
     {
         return $this->belongsTo(Instructor::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsToMany(User::class);
     }
 }

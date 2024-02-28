@@ -12,14 +12,14 @@ class PageController extends Controller
     public function create(Request $request, $course_id){
         $request->validate([
             'title' => 'required|string',
-            'content' => 'required|string',
+            'page_content' => 'required|string',
         ]);
 
         $course = Course::findOrFail($course_id);
 
         $page = new Page();
         $page->title = $request->title;
-        $page->content = $request->content;
+        $page->content = $request->page_content;
 
         $course->pages()->save($page);
         return redirect()->route('showById', $course_id)->with('success', 'Page created successfully.');

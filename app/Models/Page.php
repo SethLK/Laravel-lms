@@ -17,6 +17,6 @@ class Page extends Model
 
     public function course()
     {
-        return $this->belongsTo(Course::class);
+        return $this->belongsToMany(Course::class);
     }
 }
