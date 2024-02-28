@@ -46,8 +46,7 @@
     </div>
 @endforeach
 
-@include("layouts.foot")
-<script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/ckeditor5-build-classic-with-image-resize@12.4.0/build/ckeditor.min.js"></script>
 <script>
 
     ClassicEditor
@@ -56,8 +55,11 @@
                 uploadUrl: '{{route('image.upload').'?_token='.csrf_token()}}',
             }
         })
-        .catch( error => {
-            console.error( error );
+        .then( editor => {
+            window.editor = editor;
+        } )
+        .catch( err => {
+            console.error( err.stack );
         } );
 </script>
 
