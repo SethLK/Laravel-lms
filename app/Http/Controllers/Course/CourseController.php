@@ -13,7 +13,8 @@ class CourseController extends Controller
     public function index()
     {
         $courses = Course::where('instructor_id', auth()->user()->id)->get();
-        return view("dashboard.panel", compact("courses"));
+        $enrolled_courses = auth()->user()->courses;
+        return view("dashboard.panel", compact("courses", "enrolled_courses"));
     }
 
     public function create(Request $request)

@@ -22,11 +22,16 @@
                             additional content. This content is a little bit longer.
                         </p>
                         <div class="row">
+                            @if(auth()->user()->isEnrolled($course->id))
+                                <button class="btn btn-primary ml-4" disabled>Enrolled</button>
+                            @else
+                                <form action="{{ route("enroll", ["course_id"=> $course->id]) }}" method="POST">
+                                    @csrf
+                                    <button class="btn btn-primary ml-4" type="submit">Enroll</button>
+                                </form>
+                            @endif
                             <a href="/course/{{ $course->id }}" class="btn btn-primary ml-4">Enter</a>
-                            <form action="{{ route("enroll", ["course_id"=> $course->id]) }}" method="POST">
-                                @csrf
-                                <button class="btn btn-primary ml-4" type="submit">Enroll</button>
-                            </form>
+
                         </div>
                     </div>
                 </div>
@@ -45,6 +50,7 @@
                             This is a longer card with supporting text below as a natural lead-in to
                             additional content. This content is a little bit longer.
                         </p>
+
                         <a href="/course/{{ $course->id }}" class="btn btn-primary">Enter</a>
 
                     </div>

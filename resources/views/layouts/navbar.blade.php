@@ -9,12 +9,12 @@
 
             @auth
                 <a class="nav-item nav-link active" href="/dashboard">Dashboard<span class="sr-only">(current)</span></a>
-                    <form action="{{ route("_logout_") }}" method="post">
-                        @csrf
-                        <button  type="submit">Logout</button>
-                    </form>
+                <form action="{{ route("_logout_") }}" method="post">
+                    @csrf
+                    <button class="nav-item nav-link btn btn-link active" type="submit">Logout</button>
+                </form>
             @else
-                    <a class="nav-item nav-link" href="{{ route("login") }}">Login</a>
+                <a class="nav-item nav-link active" href="{{ route("login") }}">Login</a>
             @endauth
         </div>
     </div>

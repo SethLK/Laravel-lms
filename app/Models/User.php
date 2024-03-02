@@ -56,4 +56,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Course::class);
     }
+
+    public function isEnrolled($courseId)
+    {
+        return $this->courses()->where('course_id', $courseId)->exists();
+    }
 }
