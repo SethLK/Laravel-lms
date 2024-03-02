@@ -30,9 +30,8 @@ class CourseController extends Controller
     }
 
     public function show_by_course_id($course_id){
-        $course = Course::find($course_id);
-        $pages = Page::all();
-        return view("course.view", compact("course", "pages"));
+        $course = Course::with('pages')->find($course_id);
+        return view("course.view", compact("course"));
     }
 
     public function edit($course_id)
@@ -64,6 +63,5 @@ class CourseController extends Controller
         return redirect()->route("dashboard")->with('success', 'Course deleted successfully.');
     }
 
-    public function user_enroll(){}
 
 }

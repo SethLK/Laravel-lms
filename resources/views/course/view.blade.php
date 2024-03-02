@@ -40,7 +40,7 @@
     <!-- Display pages or other content for non-instructors -->
 @endif
 
-@foreach($pages as $page)
+@foreach($course->pages as $page)
     <div class="ml-4">
         <a href="{{ $course->id }}/page/{{ $page->id }}">{{ $page->title }}</a>
     </div>
