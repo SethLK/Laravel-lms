@@ -13,6 +13,7 @@ class Course extends Model
     use HasFactory;
     protected $fillable = [
         'title',
+        'description', // Add description field here
         'instructor_id',
     ];
     public function pages()
@@ -24,7 +25,7 @@ class Course extends Model
         return $this->belongsTo(Instructor::class);
     }
 
-    public function user()
+    public function users()
     {
         return $this->belongsToMany(User::class);
     }

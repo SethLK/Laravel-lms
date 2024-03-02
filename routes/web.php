@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Course\CourseController;
 use App\Http\Controllers\Page\PageController;
 use App\Http\Controllers\Page\ImageController;
+use App\Http\Controllers\Enroll\EnrollController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -53,3 +54,6 @@ Route::get("course/{course_id}/page/{page_id}", [PageController::class, 'viewPag
 
 // Image Upload
 Route::post("/image/upload", [ImageController::class, 'storeImage'])->name("image.upload");
+
+
+Route::post("/enroll/{course_id}", [EnrollController::class, 'enroll'])->name('enroll');
