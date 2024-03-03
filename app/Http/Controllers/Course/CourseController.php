@@ -12,7 +12,8 @@ class CourseController extends Controller
     //Render Course Controller/ CURD page
     public function index()
     {
-        $courses = Course::where('instructor_id', auth()->user()->id)->get();
+        $courses = Course::where('instructor_id', auth()->user()->id)->paginate(10);
+
         $enrolled_courses = auth()->user()->courses;
         return view("dashboard.panel", compact("courses", "enrolled_courses"));
     }

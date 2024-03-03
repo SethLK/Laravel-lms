@@ -19,8 +19,8 @@
                 @enderror
 
                 <div class="form-group m-4">
-                    <label for="description" class="form-label">Description</label>
-                    <textarea class="form-control" id="description" name="description" rows="6"></textarea>
+                    <label for="description" class="form-label">page_content</label>
+                    <textarea class="form-control" id="description" name="page_content" rows="6"></textarea>
                 </div>
                 @error('description')
                 <div style="color: red">
@@ -49,6 +49,7 @@
                 <td><a href="{{ $course->id }}/page/{{ $page->id }}">{{ $page->title }}</a></td>
                 <td>
                     <a href="{{ $course->id }}/page/{{ $page->id }}">View</a>
+                    <a href="/edit/course/{{ $course->id }}/page/{{ $page->id }}">Edit</a>
                 </td>
             </tr>
         @endforeach

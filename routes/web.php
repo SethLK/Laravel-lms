@@ -50,6 +50,9 @@ Route::middleware("auth")->group(function () {
 });
 
 Route::get("/course/{course_id}", [CourseController::class, "show_by_course_id"])->name("showById");
+Route::get("/edit/course/{course_id}/page/{page_id}", [PageController::class, 'viewPage_edit'])->name("view.edit");
+Route::put("/update/course/{course_id}/page/{page_id}", [CourseController::class, "update_"])->name("update_page");
+
 
 Route::fallback(function () {
     return view('errors.404');

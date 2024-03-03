@@ -32,6 +32,7 @@
                 </tr>
             @endforeach
             </tbody>
+            {{ $courses->links() }}
         </table>
     </div>
 </div>
