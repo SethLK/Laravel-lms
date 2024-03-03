@@ -52,6 +52,7 @@ Route::middleware("auth")->group(function () {
 Route::get("/course/{course_id}", [CourseController::class, "show_by_course_id"])->name("showById");
 Route::get("/edit/course/{course_id}/page/{page_id}", [PageController::class, 'viewPage_edit'])->name("view.edit");
 Route::put("/update/course/{course_id}/page/{page_id}", [PageController::class, "updatePage"])->name("update_page");
+Route::delete("/delete/course/{course_id}/page/{page_id}", [PageController::class, 'delete'])->name("delete_page");
 
 
 Route::fallback(function () {

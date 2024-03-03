@@ -59,5 +59,11 @@ class PageController extends Controller
         return redirect()->route("showById", ['course_id' => $course_id])->with('success', 'Page updated successfully.');
     }
 
-    public
+    public function delete($course_id, $page_id)
+    {
+        $page = Page::where('course_id', $course_id)->findOrFail($page_id);
+        $page->delete();
+
+        return redirect()->route("showById", ['course_id' => $course_id])->with('success', 'Page deleted successfully.');
+    }
 }

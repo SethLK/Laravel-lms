@@ -49,6 +49,13 @@
                 <td>
                     <a href="{{ $course->id }}/page/{{ $page->id }}">View</a>
                     <a href="{{ route('view.edit', ['course_id' => $course->id, 'page_id' => $page->id]) }}">Edit</a>
+
+                    <form action="{{ route('delete_page', ['course_id' => $course->id, 'page_id' => $page->id]) }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit">Delete</button>
+                    </form>
+
                 </td>
             </tr>
         @endforeach
