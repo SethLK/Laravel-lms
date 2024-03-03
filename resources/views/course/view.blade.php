@@ -9,24 +9,21 @@
         <div class="m-4 border rounded pl-4 pt-4">
             <h4>Add Pages</h4>
             <form action="{{ route('page.course', ['course_id' => $course->id]) }}" method="post" class="form-container" enctype="multipart/form-data">
+                @csrf
                 <div class="form-group m-4">
-                    <input type="text" placeholder="Page title" class="form-control-plaintext" name="title">
+                    <input type="text" placeholder="Page title" class="form-control" name="title">
+                    @error('title')
+                    <div style="color: red">{{ $message }}</div>
+                    @enderror
                 </div>
-                @error('title')
-                <div style="color: red">
-                    {{ $message }}
-                </div>
-                @enderror
 
                 <div class="form-group m-4">
-                    <label for="description" class="form-label">page_content</label>
+                    <label for="description" class="form-label">Description</label>
                     <textarea class="form-control" id="description" name="page_content" rows="6"></textarea>
+                    @error('page_content')
+                    <div style="color: red">{{ $message }}</div>
+                    @enderror
                 </div>
-                @error('description')
-                <div style="color: red">
-                    {{ $message }}
-                </div>
-                @enderror
 
                 <button type="submit" class="btn btn-primary m-4">Create</button>
             </form>
@@ -49,7 +46,7 @@
                 <td><a href="{{ $course->id }}/page/{{ $page->id }}">{{ $page->title }}</a></td>
                 <td>
                     <a href="{{ $course->id }}/page/{{ $page->id }}">View</a>
-                    <a href="/edit/course/{{ $course->id }}/page/{{ $page->id }}">Edit</a>
+                    <a href="{{ route('view.edit', ['course_id' => $course->id, 'page_id' => $page->id]) }}">Edit</a>
                 </td>
             </tr>
         @endforeach
