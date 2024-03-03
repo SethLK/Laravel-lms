@@ -9,7 +9,6 @@ use App\Models\Page;
 
 class CourseController extends Controller
 {
-    //Render Course Controller/ CURD page
     public function index()
     {
         $courses = Course::where('instructor_id', auth()->user()->id)->paginate(10);

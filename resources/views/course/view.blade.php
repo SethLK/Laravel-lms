@@ -11,7 +11,9 @@
             <form action="{{ route('page.course', ['course_id' => $course->id]) }}" method="post" class="form-container" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group m-4">
-                    <input type="text" placeholder="Page title" class="form-control" name="title">
+                    <label>
+                        <input type="text" placeholder="Page title" class="form-control" name="title">
+                    </label>
                     @error('title')
                     <div style="color: red">{{ $message }}</div>
                     @enderror

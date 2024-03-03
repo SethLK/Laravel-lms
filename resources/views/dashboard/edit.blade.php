@@ -6,7 +6,9 @@
     @csrf
         @method('PUT')
         <div class="form-group m-4">
-            <input type="text" placeholder="Course title" class="form-control-plaintext" name="title" value="{{$course->title}}">
+            <label>
+                <input type="text" placeholder="Course title" class="form-control-plaintext" name="title" value="{{$course->title}}">
+            </label>
         </div>
         @error('title')
         <div style="color: red">
@@ -16,7 +18,7 @@
 
         <div class="form-group m-4">
             <label for="description" class="form-label">Description</label>
-            <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+            <textarea class="form-control" id="description" name="description" rows="3">{{$course->description}}</textarea>
         </div>
         @error('description')
         <div style="color: red">

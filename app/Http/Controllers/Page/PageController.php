@@ -51,9 +51,13 @@ class PageController extends Controller
 
         $page->update([
             'title' => $request->title,
-            'page_content' => $request->page_content,
+            'content' => $request->page_content,
         ]);
+
+        $page->save();
 
         return redirect()->route("showById", ['course_id' => $course_id])->with('success', 'Page updated successfully.');
     }
+
+    public
 }
