@@ -30,4 +30,6 @@ class PageController extends Controller
         $page = Page::where('course_id', $course_id)->findOrFail($page_id);
         return view("page", compact("page"));
     }
+
+
 }

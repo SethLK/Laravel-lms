@@ -18,8 +18,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{$course->title}}</h5>
                         <p class="card-text">
-                            This is a longer card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.
+                            {{ Illuminate\Support\Str::limit($course->description, 250) }}
                         </p>
                         <div class="row">
                             @if(auth()->user()->isEnrolled($course->id))

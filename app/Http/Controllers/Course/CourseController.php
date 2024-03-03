@@ -25,6 +25,7 @@ class CourseController extends Controller
 
         Course::create([
             'title' => $request->title,
+            'description' => $request->description,
             'instructor_id' => auth()->user()->id,
         ]);
         return redirect()->route("dashboard")->with('success', 'Course Created successfully.');
@@ -48,7 +49,10 @@ class CourseController extends Controller
         ]);
 
         $course = Course::find($course_id);
-        $course->update(['title' => $request->title]);
+        $course->update([
+            'title' => $request->title,
+            'description' => $request->description,
+            ]);
         return redirect()->route("dashboard")->with('success', 'Title updated successfully.');
     }
 

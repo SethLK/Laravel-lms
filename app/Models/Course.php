@@ -13,7 +13,7 @@ class Course extends Model
     use HasFactory;
     protected $fillable = [
         'title',
-        'description', // Add description field here
+        'description',
         'instructor_id',
     ];
     public function pages()

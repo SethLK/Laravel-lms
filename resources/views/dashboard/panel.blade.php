@@ -4,7 +4,7 @@
 
 
 <div class="drop-down">
-    <button id="dropdown-btn" class="btn btn-primary ml-4">Toggle Dropdown</button>
+    <button id="dropdown-btn" class="btn btn-primary ml-4 mt-4">Toggle Dropdown</button>
     <div class="drop hidden">
         @include("dashboard.create")
         <table id="course-table" class="table m-3">
@@ -45,8 +45,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{$enrolled_course->title}}</h5>
                         <p class="card-text">
-                            This is a longer card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.
+                            {{ Illuminate\Support\Str::limit($course->description, 250) }}
                         </p>
                             <a href="/course/{{ $enrolled_course->id }}" class="btn btn-primary ml-4">Enter</a>
                     </div>

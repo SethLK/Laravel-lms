@@ -41,10 +41,10 @@ Route::middleware("auth")->group(function () {
     Route::get("/dashboard", [CourseController::class, "index"])->name("dashboard");
     Route::post("/create/course", [CourseController::class, "create"])->name("create.course");
     Route::get("/edit/{course_id}", [CourseController::class, "edit"])->name("Edit_Course");
-    Route::patch("/update/{course_id}", [CourseController::class, "update_"])->name("update_Course");
+    Route::put("/update/{course_id}", [CourseController::class, "update_"])->name("update_Course");
     Route::delete('/delete/{course_id}', [CourseController::class, 'delete'])->name('delete_course');
     Route::post("/course/{course_id}", [PageController::class, 'create'])->name("page.course");
-    Route::get("course/{course_id}/page/{page_id}", [PageController::class, 'viewPage'])->name("view.page");
+    Route::get("/course/{course_id}/page/{page_id}", [PageController::class, 'viewPage'])->name("view.page");
     Route::post("/image/upload", [ImageController::class, 'storeImage'])->name("image.upload");
     Route::post("/enroll/{course_id}", [EnrollController::class, 'enroll'])->name('enroll');
 });
