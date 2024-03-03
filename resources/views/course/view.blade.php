@@ -8,7 +8,8 @@
     @if(auth()->check() && $course->instructor_id == auth()->user()->id)
         <div class="m-4 border rounded pl-4 pt-4">
             <h4>Add Pages</h4>
-            <form action="{{ route('page.course', ['course_id' => $course->id]) }}" method="post" class="form-container" enctype="multipart/form-data">
+            <form action="{{ route('page.course', ['course_id' => $course->id]) }}" method="post" class="form-container"
+                  enctype="multipart/form-data">
                 @csrf
                 <div class="form-group m-4">
                     <label>
@@ -50,7 +51,8 @@
                     <a href="{{ $course->id }}/page/{{ $page->id }}">View</a>
                     <a href="{{ route('view.edit', ['course_id' => $course->id, 'page_id' => $page->id]) }}">Edit</a>
 
-                    <form action="{{ route('delete_page', ['course_id' => $course->id, 'page_id' => $page->id]) }}" method="post">
+                    <form action="{{ route('delete_page', ['course_id' => $course->id, 'page_id' => $page->id]) }}"
+                          method="post">
                         @csrf
                         @method('DELETE')
                         <button type="submit">Delete</button>
@@ -65,7 +67,8 @@
 
 @include("layouts.foot")
 
-<script src="https://cdn.jsdelivr.net/npm/ckeditor5-build-classic-with-image-resize@12.4.0/build/ckeditor.min.js"></script>
+<script
+    src="https://cdn.jsdelivr.net/npm/ckeditor5-build-classic-with-image-resize@12.4.0/build/ckeditor.min.js"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         ClassicEditor

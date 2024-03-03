@@ -31,7 +31,8 @@ class CourseController extends Controller
         return redirect()->route("dashboard")->with('success', 'Course Created successfully.');
     }
 
-    public function show_by_course_id($course_id){
+    public function show_by_course_id($course_id)
+    {
         $course = Course::with('pages')->find($course_id);
         return view("course.view", compact("course"));
     }
@@ -52,7 +53,7 @@ class CourseController extends Controller
         $course->update([
             'title' => $request->title,
             'description' => $request->description,
-            ]);
+        ]);
         return redirect()->route("dashboard")->with('success', 'Title updated successfully.');
     }
 

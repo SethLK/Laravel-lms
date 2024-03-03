@@ -18,12 +18,12 @@
     </thead>
     <tbody>
     @foreach ($users as $user)
-        <tr  scope="row">
+        <tr scope="row">
             <td>{{ $user->id }}</td>
             <td>{{ $user->name }}</td>
             <td>{{ $user->email }}</td>
             <td>{{ $user->role }}</td>
-            <td><a href="/promote/{{ $user->id }}">Promote</a> </td>
+            <td><a href="/promote/{{ $user->id }}">Promote</a></td>
             <td><a href="/delete/{{ $user->id }}">Delete</a></td>
         </tr>
     @endforeach

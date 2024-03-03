@@ -37,7 +37,7 @@ class PageController extends Controller
     {
         $course = Course::findOrFail($course_id);
         $page = Page::where('course_id', $course_id)->findOrFail($page_id);
-        return view("page.editPage", compact("course","page"));
+        return view("page.editPage", compact("course", "page"));
     }
 
     public function updatePage(Request $request, $course_id, $page_id)

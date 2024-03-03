@@ -1,4 +1,3 @@
-
 @include("layouts.head")
 
 @include("layouts.navbar")

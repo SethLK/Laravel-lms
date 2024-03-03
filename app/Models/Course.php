@@ -11,15 +11,18 @@ use App\Models\User;
 class Course extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'title',
         'description',
         'instructor_id',
     ];
+
     public function pages()
     {
         return $this->hasMany(Page::class);
     }
+
     public function instructor()
     {
         return $this->belongsTo(Instructor::class);

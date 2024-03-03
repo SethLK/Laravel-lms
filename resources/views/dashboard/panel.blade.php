@@ -49,7 +49,7 @@
                         <p class="card-text">
                             {{ Illuminate\Support\Str::limit($course->description, 250) }}
                         </p>
-                            <a href="/course/{{ $enrolled_course->id }}" class="btn btn-primary ml-4">Enter</a>
+                        <a href="/course/{{ $enrolled_course->id }}" class="btn btn-primary ml-4">Enter</a>
                     </div>
                 </div>
             </div> <!-- Closing angle bracket was missing here -->
