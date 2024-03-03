@@ -54,7 +54,6 @@ class PageController extends Controller
             'page_content' => $request->page_content,
         ]);
 
-        return redirect()->route("page")->with('success', 'Page updated successfully.');
-
+        return redirect()->route("showById", ['course_id' => $course_id])->with('success', 'Page updated successfully.');
     }
 }
