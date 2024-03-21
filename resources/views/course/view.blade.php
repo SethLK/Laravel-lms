@@ -33,36 +33,38 @@
         </div>
     @endif
 
-    <h3>Pages</h3>
-    <table class="table">
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach($course->pages as $page)
+    <div class="m-4">
+        <h3>Pages</h3>
+        <table class="table">
+            <thead>
             <tr>
-                <td>{{ $page->id }}</td>
-                <td><a href="{{ $course->id }}/page/{{ $page->id }}">{{ $page->title }}</a></td>
-                <td>
-                    <a href="{{ $course->id }}/page/{{ $page->id }}">View</a>
-                    <a href="{{ route('view.edit', ['course_id' => $course->id, 'page_id' => $page->id]) }}">Edit</a>
-
-                    <form action="{{ route('delete_page', ['course_id' => $course->id, 'page_id' => $page->id]) }}"
-                          method="post">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit">Delete</button>
-                    </form>
-
-                </td>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Action</th>
             </tr>
-        @endforeach
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            @foreach($course->pages as $page)
+                <tr>
+                    <td>{{ $page->id }}</td>
+                    <td><a href="{{ $course->id }}/page/{{ $page->id }}">{{ $page->title }}</a></td>
+                    <td>
+                        <a href="{{ $course->id }}/page/{{ $page->id }}">View</a>
+                        <a href="{{ route('view.edit', ['course_id' => $course->id, 'page_id' => $page->id]) }}">Edit</a>
+
+                        <form action="{{ route('delete_page', ['course_id' => $course->id, 'page_id' => $page->id]) }}"
+                              method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="primary btn">Delete</button>
+                        </form>
+
+                    </td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+    </div>
 </div>
 
 @include("layouts.foot")
