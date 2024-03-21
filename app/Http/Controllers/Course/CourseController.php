@@ -34,7 +34,8 @@ class CourseController extends Controller
     public function show_by_course_id($course_id)
     {
         $course = Course::with('pages')->find($course_id);
-        return view("course.view", compact("course"));
+        $enrolledUsers = $course->users;
+        return view("course.view", compact("course", "enrolledUsers"));
     }
 
     public function edit($course_id)

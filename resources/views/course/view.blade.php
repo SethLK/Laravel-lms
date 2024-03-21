@@ -6,7 +6,11 @@
     <p>Description: {{ $course->description }}</p>
 
     @if(auth()->check() && $course->instructor_id == auth()->user()->id)
+        <button id="dropdown-btn" class="btn btn-primary ml-4 mt-4">Toggle Dropdown</button>
+        <div class="drop hidden">
         <div class="m-4 border rounded pl-4 pt-4">
+
+
             <h4>Add Pages</h4>
             <form action="{{ route('page.course', ['course_id' => $course->id]) }}" method="post" class="form-container"
                   enctype="multipart/form-data">
@@ -30,6 +34,7 @@
 
                 <button type="submit" class="btn btn-primary m-4">Create</button>
             </form>
+            </div>
         </div>
     @endif
 
@@ -64,6 +69,13 @@
             @endforeach
             </tbody>
         </table>
+
+        <h3>Enrolled Users</h3>
+        @foreach($course->users as $user)
+            <ul>
+                <li>{{ $user->name }}</li>
+            </ul>
+        @endforeach
     </div>
 </div>
 
@@ -82,4 +94,18 @@
                 console.error(err.stack);
             });
     });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const dropdownBtn = document.getElementById("dropdown-btn");
+        const courseTable = document.querySelector(".drop"); // Changed to ".drop"
+
+        dropdownBtn.addEventListener("click", function () {
+            courseTable.classList.toggle("hidden");
+        });
+    });
 </script>
+<style>
+    .hidden {
+        display: none;
+    }
+</style>
